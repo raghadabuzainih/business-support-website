@@ -1,0 +1,65 @@
+<%- include('./partials/header.ejs') %>
+
+<div class="pages-in-allowed-page">
+    <nav style="gap: 8.4rem;" id="allowed-page">
+        <h1>Let's support each other!</h1>
+        <%- include('./partials/access.ejs') %>
+    </nav>
+    
+    <div class="welcome">
+        <div class="div-welcome">
+            <h1>Hey, Welcome to our community!</h1>
+            <h2>At the top you can see different projects <i class="fa-regular fa-face-smile"></i></h2>
+            <h3 style="width: 44rem; margin-left: 8rem;">Scroll down to publish your project <i class="fa-solid fa-down-long"></i></h3>
+        </div>
+    </div>
+    
+    <div class="fill">
+        <form id="form-publish">
+            <div>
+                <h3><label for="title">Title</label></h3>
+                <input type="text" name="title" style="width: 15rem; height: 2rem;" required>
+            </div>
+            <div>
+                <h3><label for="section">Section</label></h3>
+                <div id="radios">
+                    <input type="radio" name="section" id="section" value="food" required>Food
+                    <input type="radio" name="section" id="section" value="embroidery" required>Embroidery
+                    <input type="radio" name="section" id="section" value="candles" required>Candles
+                </div>
+            </div>
+            <div>
+                <h3><label for="description">Description</label></h3>
+                <textarea name="description" style="resize: none; height: 10rem; width: 25rem;" required></textarea>
+            </div>
+            <div>
+                <h3><label for="photo">Pictures of your work</label></h3>
+                <div class="photos">
+                    <% for(let i=1; i<=3; i++){ %>
+                        <input type="file" accept="image/*" name="photos" id="photo-<%= i %>" required>
+                    <% } %>
+                </div>
+            </div>
+            <button>Publish</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    const form = document.querySelector('form');
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        // collect all form data (text,radio,textarea,images)
+        const formData = new FormData(form);
+
+        await fetch('/all', {
+        method: 'POST',
+        body: formData
+        }).then(res => location.assign('/all'))
+        .catch(err => console.log(err));
+    });
+
+</script>
+</body>
+</html>

@@ -1,0 +1,216 @@
+body{
+    font-family: sans-serif;
+    letter-spacing: 1px;
+}
+
+#homepage{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.647),rgba(3, 0, 0, 0.521)), url("./images/background-homePage.jpg");
+}
+
+#homepage, .login-signup-pages, .welcome{
+    background-size: cover; 
+    margin: -8;
+    width: 96rem;
+    height: 46.1rem;
+}
+
+nav{
+    background: linear-gradient(90deg, rgba(64, 52, 116, 0.516),  rgba(161, 93, 105, 0.44), rgba(64, 52, 116, 0.516), rgba(161, 93, 105, 0.44));
+    display: flex;
+    gap: 59rem;
+    padding-left: 2rem;
+    color: rgba(0, 0, 0, 0.523);
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+}
+
+nav a, h1{
+    color: rgb(13, 57, 0);
+    padding: 0 2px;
+    border-radius: 1rem;
+    background-color: rgba(135, 234, 140, 0.333);
+}
+
+nav a:hover{
+    background-color: rgb(135, 234, 140);
+}
+
+#content-homepage{
+    width: 33rem;
+    padding-left: 4rem;
+    padding-top: 10rem;
+}
+
+#content-homepage h2{
+    font-weight: 200;
+    color: rgba(255, 192, 203, 0.399);
+    background-color: rgba(0, 0, 0, 0.279);
+}
+
+#access{
+    display: flex;
+    gap: 2rem;
+}
+
+a, button{
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.login-signup-pages{
+    color: white;
+    background-image: linear-gradient(rgba(4, 2, 2, 0.708),rgba(3, 0, 0, 0.692)), url("./images/background-homePage.jpg");
+}
+
+#log-sign-forms{
+    position: absolute;
+    top: 4rem;
+    margin-left: 13rem;
+    font-size: larger;
+    width: 15.3rem;
+    border-radius: 1rem;
+    border: 2px dashed black;
+    padding: 2rem;
+    padding-top: 0;
+    background-color: rgba(54, 41, 88, 0.158);
+}
+
+#err{
+    color: rgb(84, 31, 31);
+    font-size: small; 
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+input, button,textarea{
+    border: none;
+    padding: .5rem;
+}
+
+#log-sign-forms input, button{
+    padding: .4rem;
+    width: 15rem;
+    height: 2rem;
+    margin-top: .4rem;
+    margin-bottom: .4rem;
+    background-color: rgba(127, 255, 212, 0.348);
+}
+
+#log-sign-forms button{
+    font-size: 1rem;
+}
+
+#projects-list h2{
+    background-color: rgba(255, 115, 0, 0.496);
+}
+
+.pages-in-allowed-page{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+
+.welcome{
+    background-image: linear-gradient(rgba(135, 100, 185, 0.497),rgba(3, 0, 0, 0.521)), url('./images/welcome.png');
+    height: 40rem;
+    width: 95.43rem;
+}
+
+.div-welcome{
+    position: absolute;
+    font-size: 2rem;
+    top: 11rem;
+    left: 16rem;
+}
+
+.welcome h1,.welcome h2,.welcome h3{
+    border-radius: .8rem;
+    background-color: rgba(178, 195, 181, 0.556);
+}
+
+.fill{
+    background-image: linear-gradient(rgba(12, 9, 16, 0.497), rgba(3, 0, 0, 0.521)), url('./images/form-background.jpg');
+    background-size: cover;
+    margin: .5rem -2rem;
+    height: 43.7rem;
+    width: 96.93rem;
+}
+
+#form-publish{
+    background-size: cover;
+    text-align: start;
+    display: block;
+    gap: 1rem;
+    margin-left: 35rem;
+    display: grid;
+    width: 25rem;
+    padding: 1rem 2rem;
+    background-color: rgba(255, 192, 203, 0.663);
+}
+
+#radios{
+    display: flex;
+    gap: 1rem;
+}
+
+#form-publish button{
+    width: 15rem;
+    height: 2rem;
+    font-weight: bold;
+    font-size: medium;
+    background-color: white;
+};
+
+.content{
+   
+    border: 1px solid black;
+}
+
+.content h2, .content h3, .content h4{
+    background-color: white;
+    border: 2px solid black;
+    color: black;
+}
+
+.images-all{
+    display: flex;
+    flex-wrap: wrap;
+    width: 78rem;
+    gap: 1rem;
+    margin-left: 3.7rem;
+}
+
+.photo{
+    width: 20rem;
+    height: 18rem;
+    border: 2px solid white;
+}
+
+.delete{
+    position: absolute;
+    right: 14rem;
+    background: white;
+    height: 3rem;
+    width: 3rem;
+    border: 2px solid;
+    margin: 1.5rem 1rem;
+    color: red
+}
+
+.delete:hover{
+    color: blue;
+}
+
+.info{
+    padding: 0 7rem;
+    font-size: large;
+    text-align: center;
+}
+
+.info span{
+    color: red;
+}

@@ -1,0 +1,60 @@
+<% if(projects != null && projects.length >0){ %>
+    <div class="projects" style="margin-top: 7rem;">
+        <nav style="gap: 5rem;">
+            <h1><%= header %></h1>
+            <h2><a href="/"><i class="fa-solid fa-house"></i>Home</a></h2>
+            <%- include('./access.ejs') %>
+        </nav>
+        <% projects.forEach(project=>{%>
+            <form>
+                <% if(project.userID._id.toString() == user._id.toString()){ %>
+                    <button class="delete" data-doc="<%= project._id %>"><i style="font-size: 2rem;" class="fa-solid fa-trash"></i></button>
+                <% } %>
+                <div class="content" style="background-image: linear-gradient(rgba(0, 0, 0, 0.647),rgba(3, 0, 0, 0.521)),
+                url('<%= background %>'); background-size: cover; width: 70rem;margin-left: 11rem;
+                margin-bottom: 3rem;">
+                    <div class="info">
+                        <h2><span>Project name :</span> <%= project.title %></h2>
+                        <% if(header == 'All projects'){ %>
+                            <h2><span>Section:</span> <%= project.section %></h2>
+                        <% } %>
+                        <h3><span>Description : </span><%= project.description %></h3>
+                        <% if(project.userID._id.toString() == user._id.toString()){ %>
+                            <h4><span>Published by :</span> Me</h4>
+                        <% }else{ %>
+                        <h4><span>Published by : </span><%= project.userID.userName %></h4>
+                        <% } %>
+                        <h4><span>Work photos: </span></h4>
+                    </div>
+                    <div class="images-all">
+                        <% project.images.forEach(source=>{ %>
+                            <img src="<%= source %>" class="photo">
+                        <% }) %>
+                    </div>
+                    <h4 style="text-align: center;"><span style="color: red;">Contact me:</span> +972<%= project.userID.phoneNumber %></h4>
+                </div>
+            </form>
+    </div>
+    <% }) %>
+<% }else{ %>
+    <h1>There is no projects in this section!</h1>
+<% } %>
+
+<script>
+    const dlButton = document.querySelectorAll('.delete')
+    dlButton.forEach(but=>{
+        but.addEventListener('click', async(e)=>{
+            e.preventDefault()
+            const projectID = but.dataset.doc
+            const res = await fetch(`/${projectID}`,{
+                method: 'DELETE',
+                body: JSON.stringify({id: projectID}),
+                headers: {'Content-Type' : 'application/json'} 
+            }).then(res => 
+            window.location.href = window.location.href,
+            location.reload()
+            )
+            .catch(err=> console.log(err))
+        })
+    })
+</script>
